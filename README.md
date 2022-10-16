@@ -11,5 +11,5 @@ As soon as the player crosses the boundary of the road or collision takes place 
 
 
 
-Any changes in this repsoitory for betterment of the game is Welcome
+Any changes in this repsoitory for improvement of the game is Welcome
 Adios!!
