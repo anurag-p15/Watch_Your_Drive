@@ -7,7 +7,8 @@ The player can move the car using the left and right arrow keys along the horizo
 As soon as the player leaves the road or collision takes place the game ends and the gaming window closes.
 
 
-![Screenshot 2022-10-16 235932](https://user-images.githubusercontent.com/108535343/196052320-8852081e-3b70-4830-8b01-0ea4ecbf46ce.png)
+![Screenshot 2022-10-17 191412](https://user-images.githubusercontent.com/108535343/196193257-3d6fcfbb-70d5-4384-a006-44697a91ec5b.png)
+
 
 
 
