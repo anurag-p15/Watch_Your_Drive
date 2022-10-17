@@ -58,15 +58,18 @@ def player(x, y):
 car1 = pygame.image.load('rival.png')
 car1X=random.randint(200,236)
 car1Y=random.randint(100,200)
-car2 = pygame.image.load('rival2.png')
+car2 = pygame.image.load('rival.png')
 car2X=random.randint(300,336)
 car2Y=random.randint(100,200)
-car3 = pygame.image.load('rival3.png')
+car3 = pygame.image.load('rival.png')
 car3X=random.randint(400,436)
 car3Y=random.randint(100,200)
-car4 = pygame.image.load('rival4.png')
+car4 = pygame.image.load('rival.png')
 car4X=random.randint(500,536)
 car4Y=random.randint(100,200)
+car5 = pygame.image.load('rival.png')
+car5X=random.randint(520,560)
+car5Y=random.randint(100,200)
 
 
 def Car(car, x, y):
@@ -105,6 +108,14 @@ def isCollision4(car4X, car4Y, playerX, playerY):
     else:
         return False
 
+def isCollision5(car5X, car5Y, playerX, playerY):
+    distance = math.sqrt(math.pow(car5X - playerX, 2) + (math.pow(car5Y - playerY, 2)))
+    if distance < 35:
+        pygame.mixer.stop()
+        return True
+    else:
+        return False
+
 ##GAME LOOP
 run=True
 while run:
@@ -116,6 +127,7 @@ while run:
     Car(car2,car2X,car2Y)
     Car(car3,car3X,car3Y)
     Car(car4,car4X,car4Y)
+    Car(car5,car5X,car5Y)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -149,6 +161,14 @@ while run:
             explosionSound.play()
             game_over_text()
             run=False 
+            
+        collision= isCollision5(car5X, car5Y, playerX, playerY)
+        if collision:
+            explosionSound = mixer.Sound("explosion.wav")
+            explosionSound.play()
+            game_over_text()
+            run=False 
+
 
         # if keystroke is pressed check whether its right or left (Player Movement)
         if event.type == pygame.KEYDOWN:
@@ -163,7 +183,7 @@ while run:
                 playerX_change = 0
 
         playerX += playerX_change  
-        if playerX < 200  or playerX > 536:
+        if playerX < 200  or playerX > 560:
             pygame.mixer.stop()
             game_over_text() 
             run=False
@@ -173,6 +193,7 @@ while run:
         car2Y+=15
         car3Y+=20
         car4Y+=30
+        car5Y+=20
         
         if car1Y > 764:
            car1Y = -100
@@ -185,6 +206,9 @@ while run:
            score_value+=1
         if car4Y > 764:
            car4Y =-100
+           score_value+=1
+        if car5Y > 764:
+           car5Y =-100
            score_value+=1
         
 
