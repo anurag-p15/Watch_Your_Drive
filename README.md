@@ -12,5 +12,5 @@ As soon as the player leaves the road or collision takes place the game ends and
 
 
 
-There will be some modifications in the game which will be done in due course of time. Any changes in this repsoitory for improvement of the game is Welcome
+There will be some modifications in the game which will be done in due course of time.
 Adios!!
