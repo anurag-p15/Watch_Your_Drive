@@ -188,13 +188,6 @@ while run:
             game_over_text() 
             run=False
         
-        #Condition of moving incoming cars 
-        car1Y+=20
-        car2Y+=15
-        car3Y+=20
-        car4Y+=30
-        car5Y+=20
-        
         if car1Y > 700:
            car1Y = -100
            car1X=random.randint(200,250)
@@ -218,7 +211,12 @@ while run:
         
         
 
-
+    #Condition of moving incoming cars 
+    car1Y+=3
+    car2Y+=1
+    car3Y+=2
+    car4Y+=2
+    car5Y+=4
     show_score(textX, testY)
     pygame.display.update()  
 
