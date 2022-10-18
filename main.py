@@ -45,7 +45,7 @@ def game_over_text():
 #Player Creation
 p=pygame.image.load('player.png')
 pygame.display.set_icon(p)
-playerX = 500
+playerX = random.randint(200,560)
 playerY = 634
 playerX_change = 0
 
@@ -78,7 +78,7 @@ def Car(car, x, y):
 #Collision
 def isCollision1(car1X, car1Y, playerX, playerY):
     distance = math.sqrt(math.pow(car1X - playerX, 2) + (math.pow(car1Y - playerY, 2)))
-    if distance < 65:
+    if distance < 35:
         pygame.mixer.stop()
         return True
     else:
@@ -86,7 +86,7 @@ def isCollision1(car1X, car1Y, playerX, playerY):
 
 def isCollision2(car2X, car2Y, playerX, playerY):
     distance = math.sqrt(math.pow(car2X - playerX, 2) + (math.pow(car2Y - playerY, 2)))
-    if distance < 65:
+    if distance < 35:
         pygame.mixer.stop()
         return True
     else:
@@ -94,7 +94,7 @@ def isCollision2(car2X, car2Y, playerX, playerY):
 
 def isCollision3(car3X, car3Y, playerX, playerY):
     distance = math.sqrt(math.pow(car3X - playerX, 2) + (math.pow(car3Y - playerY, 2)))
-    if distance < 65:
+    if distance < 35:
         pygame.mixer.stop()
         return True
     else:
@@ -102,7 +102,7 @@ def isCollision3(car3X, car3Y, playerX, playerY):
 
 def isCollision4(car4X, car4Y, playerX, playerY):
     distance = math.sqrt(math.pow(car4X - playerX, 2) + (math.pow(car4Y - playerY, 2)))
-    if distance < 65:
+    if distance < 35:
         pygame.mixer.stop()
         return True
     else:
@@ -195,21 +195,27 @@ while run:
         car4Y+=30
         car5Y+=20
         
-        if car1Y > 764:
+        if car1Y > 700:
            car1Y = -100
+           car1X=random.randint(200,250)
            score_value+=1
-        if car2Y > 764:
+        if car2Y > 700:
            car2Y = -100
+           car2X=random.randint(280,330)
            score_value+=1
-        if car3Y > 764:
+        if car3Y > 700:
            car3Y = -100
+           car3X=random.randint(360,410)
            score_value+=1
-        if car4Y > 764:
+        if car4Y > 700:
            car4Y =-100
+           car4X=random.randint(440,490)
            score_value+=1
-        if car5Y > 764:
+        if car5Y > 700:
            car5Y =-100
+           car5X=random.randint(520,550)
            score_value+=1
+        
         
 
 
