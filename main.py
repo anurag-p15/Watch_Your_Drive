@@ -70,6 +70,11 @@ car4Y=random.randint(100,200)
 car5 = pygame.image.load('rival.png')
 car5X=random.randint(520,560)
 car5Y=random.randint(100,200)
+car1Y_change=0
+car2Y_change=0
+car3Y_change=0
+car4Y_change=0
+car5Y_change=0
 
 
 def Car(car, x, y):
@@ -174,27 +179,70 @@ while run:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 playerX_change = -30
+                car1Y_change=10
+                car2Y_change=20
+                car3Y_change=15
+                car4Y_change=20
+                car5Y_change=15
             if event.key == pygame.K_RIGHT:
                 playerX_change = 30
+                car1Y_change=10
+                car2Y_change=20
+                car3Y_change=15
+                car4Y_change=20
+                car5Y_change=15
+            if event.key == pygame.K_UP:
+                 #Condition of moving incoming cars 
+                car1Y_change=20
+                car2Y_change=25
+                car3Y_change=30
+                car4Y_change=30
+                car5Y_change=20
             
                 
-        if  event.type == pygame.KEYUP:
+         if  event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 playerX_change = 0
+                car1Y_change=0
+                car2Y_change=0
+                car3Y_change=0
+                car4Y_change=0
+                car5Y_change=0
+            if event.key == pygame.K_UP:
+                car1Y_change=0
+                car2Y_change=0
+                car3Y_change=0
+                car4Y_change=0
+                car5Y_change=0
 
         playerX += playerX_change  
+        car1Y+=car1Y_change
+        car2Y+=car2Y_change
+        car3Y+=car3Y_change
+        car4Y+=car4Y_change
+        car5Y+=car5Y_change
+        if score_value>10:
+                t=score_value/10
+                car1Y=car1Y+(5*t)
+                car2Y=car2Y+(6*t)
+                car3Y=car3Y+(7*t)
+                car4Y=car4Y+(5*t)
+                car5Y=car5Y+(8*t)
         if playerX < 200  or playerX > 560:
             pygame.mixer.stop()
-            game_over_text() 
+            car1X=900 
+            car1Y=900
+            car2X=900 
+            car2Y=900
+            car3X=900
+            car3Y=900
+            car4X=900
+            car4Y=900
+            car5X=900
+            car5Y=900
+            game_over_text()  
             run=False
-        
-        #Condition of moving incoming cars 
-        car1Y+=10
-        car2Y+=20
-        car3Y+=15
-        car4Y+=20
-        car5Y+=15
-        
+            
         if car1Y > 700:
            car1Y = -100
            car1X=random.randint(200,250)
@@ -215,12 +263,5 @@ while run:
            car5Y =-100
            car5X=random.randint(520,550)
            score_value+=1
-        
     show_score(textX, testY)
     pygame.display.update()  
-
-
-    
-    
-    
-        
