@@ -108,15 +108,15 @@ while run:
         
     for i in range(num_of_cars):
                     if i%5==0:
-                        CarY[i]+=2
+                        CarY[i]+=1.3
                     if i%5==1:
-                        CarY[i]+=2
+                        CarY[i]+=1.5
                     if i%5==2:
-                        CarY[i]+=2
+                        CarY[i]+=1.4
                     if i%5==3:
-                        CarY[i]+=2
+                        CarY[i]+=1.2
                     if i%5==4:
-                        CarY[i]+=2  
+                        CarY[i]+=1.3 
         ##Condition of ending the game
     for i in range(num_of_cars):
         collision= isCollision(CarX[i], CarY[i], playerX, playerY)
@@ -130,9 +130,9 @@ while run:
         # if keystroke is pressed check whether its right or left (Player Movement)
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_LEFT:
-                playerX_change = -3 
+                playerX_change = -2.5 
         if event.key == pygame.K_RIGHT:
-                playerX_change = 3         
+                playerX_change = 2.5        
                 
     if  event.type == pygame.KEYUP:
         if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
@@ -144,17 +144,17 @@ while run:
         t=int(score_value/10)
         n=5
         for i in range(n):
-            if i%5==0:
-                CarY[i]=CarY[i]+(1*t)
+             if i%5==0:
+                CarY[i]=CarY[i]+(0.4*t)
             if i%5==1:
-                CarY[i]=CarY[i]+(1*t)
+                CarY[i]=CarY[i]+(0.5*t)
             if i%5==2:
                 CarY[i]=CarY[i]+(0.7*t)
             if i%5==3:
-                CarY[i]=CarY[i]+(1.3*t)
+                CarY[i]=CarY[i]+(0.5*t)
             if i%5==4:
-                CarY[i]=CarY[i]+(1.4*t)
-    if playerX < 200  or playerX > 560:
+                CarY[i]=CarY[i]+(0.6*t)
+    if playerX < 200  or playerX > 590:
         pygame.mixer.stop()
         for i in range(n):
             CarX[i]=900 
